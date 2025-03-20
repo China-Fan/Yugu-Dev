@@ -1,0 +1,62 @@
+<style>
+#顶栏 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+}
+.霓虹灯按钮 {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0ffe0;
+    color: #67b33b;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px #0000ff, 0px 0px 20px #abcdef;
+    transition: all 0.3s ease-in-out;
+}
+
+.霓虹灯按钮:hover {
+    background-color: #e0ffe0;
+    box-shadow: 0px 0px 10px #00ffff, 0px 0px 20px #00fddf;
+}
+
+.Bq {
+  background: #8E44AD;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://v1.hitokoto.cn")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("daily-quote").innerText = data.hitokoto;
+            })
+            .catch(error => {
+                console.error("获取失败:", error);
+                document.getElementById("daily-quote").innerText = "是你把这里唯一的一句话吃掉了吗？";
+            });
+    });
+
+    function getD1() {
+        var date = new Date();
+        var d1 = date.toLocaleString();
+        document.getElementById("datetime").innerHTML = d1;
+    }
+    setInterval("getD1();", 1000);
+</script>
+
+<div id="顶栏">
+    <button class="霓虹灯按钮"><a href="https://discussforluogu.flarum.cloud"><div id="datetime"></div></a></button>
+    <b><p id="daily-quote">一言正在玩命加载...</p></b>
+</div>
