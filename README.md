@@ -2,7 +2,7 @@
 
 - footer.html：页脚。
 - header.html：页首。
-- tag-and-AR.css：Tag 以及奖项认证（本项目需私信获取，不可第二次公开）。
+- tag-and-AR.css：Tag 及奖项认证。
 
 ---
 - © 2025-2025 浴谷 / Yugu. All rights reserved.
