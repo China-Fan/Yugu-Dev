@@ -1,0 +1,60 @@
+/* Tag+AR */
+
+.PostUser-name a[href="/u/?"] .username::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSIjNWViOTVlIiBzdHlsZT0ibWFyZ2luLWJvdHRvbTogLTNweDsiPjxwYXRoIGQ9Ik0xNiA4QzE2IDYuODQzNzUgMTUuMjUgNS44NDM3NSAxNC4xODc1IDUuNDM3NUMxNC42NTYyIDQuNDM3NSAxNC40Njg4IDMuMTg3NSAxMy42NTYyIDIuMzQzNzVDMTIuODEyNSAxLjUzMTI1IDExLjU2MjUgMS4zNDM3NSAxMC41NjI1IDEuODEyNUMxMC4xNTYyIDAuNzUgOS4xNTYyIDAgOCAwQzYuODEyNSAwIDUuODEyNSAwLjc1IDUuNDA2MjUgMS44MTI1QzQuNDA2MjUgMS4zNDM3NSAzLjE1NjI1IDEuNTMxMjUgMi4zNDM3NSAyLjM0Mzc1QzEuNSAzLjE4NzUgMS4zMTI1IDQuNDM3NSAxLjc4MTI1IDUuNDM3NUMwLjcxODc1IDUuODQzNzUgMCA2Ljg0Mzc1IDAgOEMwIDkuMTg3NSAwLjcxODc1IDEwLjE4NzUgMS43ODEyNSAxMC41OTM4QzEuMzEyNSAxMS41OTM4IDEuNSAxMi44NDM4IDIuMzQzNzUgMTMuNjU2MkMzLjE1NjI1IDE0LjUgNC40MDYyNSAxNC42ODc1IDUuNDA2MjUgMTQuMjE4OEM1LjgxMjUgMTUuMjgxMiA2LjgxMjUgMTYgOCAxNkM5LjE1NjI1IDE2IDEwLjE1NjIgMTUuMjgxMiAxMC41NjI1IDE0LjIxODhDMTEuNTkzOCAxNC42ODc1IDEyLjgxMjUgMTQuNSAxMy42NTYyIDEzLjY1NjJDMTQuNDY4OCAxMi44NDM4IDE0LjY1NjIgMTEuNTkzOCAxNC4xODc1IDEwLjU5MzhDMTUuMjUgMTAuMTg3NSAxNiA5LjE4NzUgMTYgOFpNMTEuNDY4OCA2LjYyNUw3LjM3NSAxMC42ODc1QzcuMjE4OCAxMC44NDM4IDcgMTAuODEyNSA2Ljg3NSAxMC42ODc1TDQuNSA4LjMxMjVDNC4zNzUgOC4xODc1IDQuMzc1IDcuOTY4OCA0LjUgNy44MTI1TDUuMzEyNSA3QzUuNDY4OCA2Ljg3NSA1LjY4NzUgNi44NzUgNS44MTI1IDcuMDMxMjVMNy4xMjUgOC4zNDM4TDEwLjE1NjIgNS4zNDM4QzEwLjMxMjUgNS4xODc1IDEwLjUzMTIgNS4xODc1IDEwLjY1NjIgNS4zNDM4TDExLjQ2ODggNi4xNTYyQzExLjU5MzggNi4yODEyIDExLjU5MzggNi41IDExLjQ2ODggNi42MjVaIj48L3BhdGg+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    margin: 0 3px 0 5px !important;
+    vertical-align: middle !important;
+}
+.PostUser-name a[href="/u/1"]::after {
+    content: "Tag" !important;
+    display: inline-block !important;
+    background: #9D3DCF !important;
+    color: white !important;
+    font-size: 0.8em !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+}
+
+/* Tag */
+
+.PostUser-name a[href="/u/?"] .username::after {
+    content: "Tag" !important;
+    display: inline-block !important;
+    background: #9D3DCF !important;
+    color: white !important;
+    font-size: 0.8em !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    margin-left: 5px !important;
+}
+
+/*AR*/
+
+.PostUser-name a[href="/u/?"] .username::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSIjNWViOTVlIiBzdHlsZT0ibWFyZ2luLWJvdHRvbTogLTNweDsiPjxwYXRoIGQ9Ik0xNiA4QzE2IDYuODQzNzUgMTUuMjUgNS44NDM3NSAxNC4xODc1IDUuNDM3NUMxNC42NTYyIDQuNDM3NSAxNC40Njg4IDMuMTg3NSAxMy42NTYyIDIuMzQzNzVDMTIuODEyNSAxLjUzMTI1IDExLjU2MjUgMS4zNDM3NSAxMC41NjI1IDEuODEyNUMxMC4xNTYyIDAuNzUgOS4xNTYyIDAgOCAwQzYuODEyNSAwIDUuODEyNSAwLjc1IDUuNDA2MjUgMS44MTI1QzQuNDA2MjUgMS4zNDM3NSAzLjE1NjI1IDEuNTMxMjUgMi4zNDM3NSAyLjM0Mzc1QzEuNSAzLjE4NzUgMS4zMTI1IDQuNDM3NSAxLjc4MTI1IDUuNDM3NUMwLjcxODc1IDUuODQzNzUgMCA2Ljg0Mzc1IDAgOEMwIDkuMTg3NSAwLjcxODc1IDEwLjE4NzUgMS43ODEyNSAxMC41OTM4QzEuMzEyNSAxMS41OTM4IDEuNSAxMi44NDM4IDIuMzQzNzUgMTMuNjU2MkMzLjE1NjI1IDE0LjUgNC40MDYyNSAxNC42ODc1IDUuNDA2MjUgMTQuMjE4OEM1LjgxMjUgMTUuMjgxMiA2LjgxMjUgMTYgOCAxNkM5LjE1NjI1IDE2IDEwLjE1NjIgMTUuMjgxMiAxMC41NjI1IDE0LjIxODhDMTEuNTkzOCAxNC42ODc1IDEyLjgxMjUgMTQuNSAxMy42NTYyIDEzLjY1NjJDMTQuNDY4OCAxMi44NDM4IDE0LjY1NjIgMTEuNTkzOCAxNC4xODc1IDEwLjU5MzhDMTUuMjUgMTAuMTg3NSAxNiA5LjE4NzUgMTYgOFpNMTEuNDY4OCA2LjYyNUw3LjM3NSAxMC42ODc1QzcuMjE4OCAxMC44NDM4IDcgMTAuODEyNSA2Ljg3NSAxMC42ODc1TDQuNSA4LjMxMjVDNC4zNzUgOC4xODc1IDQuMzc1IDcuOTY4OCA0LjUgNy44MTI1TDUuMzEyNSA3QzUuNDY4OCA2Ljg3NSA1LjY4NzUgNi44NzUgNS44MTI1IDcuMDMxMjVMNy4xMjUgOC4zNDM4TDEwLjE1NjIgNS4zNDM4QzEwLjMxMjUgNS4xODc1IDEwLjUzMTIgNS4xODc1IDEwLjY1NjIgNS4zNDM4TDExLjQ2ODggNi4xNTYyQzExLjU5MzggNi4yODEyIDExLjU5MzggNi41IDExLjQ2ODggNi42MjVaIj48L3BhdGg+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    margin: 0 3px 0 5px !important;
+    vertical-align: middle !important;
+}
+
+/*
+Tag 修改颜色：
+    background: #9D3DCF !important;
+    color: white !important;
+钩子修改颜色：
+    SVG 图片转换为 BASE64 后将 BASE64 置于：
+        background-image: url("BASE64-Code");
+*/
