@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能胶囊助手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        身体 {
+            background: #f0f2f5;
+            min-height: 100vh;
+            padding: 0px;
+        }
+
+        /* 智能胶囊助手样式 */
+        #智能胶囊助手 {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 500px;
+            max-width: calc(100% - 50px);
+            z-index: 1000;
+            border-radius: 30px;
+            background: white;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            transform-origin: bottom right;
+        }
+
+        /* MacOS风格的打开/关闭动画 */
+        @keyframes macOpen {
+            0% {
+                transform: scale(0.1) translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes macClose {
+            0% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.1) translateY(20px);
+                opacity: 0;
+            }
+        }
+
+        /* 缩小状态 */
+        #智能胶囊助手.缩小状态 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        #智能胶囊助手.缩小状态 .助手主体 {
+            display: none;
+        }
+
+        #智能胶囊助手 .智能胶囊助手标题栏 {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: relative;
+        }
+
+        #智能胶囊助手 .智能胶囊助手标题栏 h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* 自定义机器人图标样式 */
+        .robot-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            padding: 3px;
+        }
+
+        /* 缩小状态专用机器人图标 */
+        .mini-robot-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            padding: 3px;
+            display: none;
+        }
+
+        /* 缩小按钮样式 */
+        #智能胶囊助手 .缩小按钮 {
+            background: rgba(255, 255, 255, 0.2);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #智能胶囊助手 .缩小按钮:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .svg-icon {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        #智能胶囊助手 .助手主体 {
+            display: flex;
+            flex-direction: column;
+            max-height: 400px;
+        }
+
+        #智能胶囊助手 .回答区域 {
+            padding: 20px;
+            min-height: 150px;
+            max-height: 250px;
+            overflow-y: auto;
+            background: #f9f9ff;
+            border-bottom: 1px solid #eee;
+        }
+
+        #智能胶囊助手 .回答内容 {
+            white-space: pre-wrap;
+            line-height: 1.7;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* 保留列表样式 */
+        #智能胶囊助手 .回答内容 ul,
+        #智能胶囊助手 .回答内容 ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        #智能胶囊助手 .回答内容 ul {
+            list-style-type: disc;
+        }
+
+        #智能胶囊助手 .回答内容 ol {
+            list-style-type: decimal;
+        }
+
+        #智能胶囊助手 .输入区域 {
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        #智能胶囊助手 .输入区域 textarea {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            resize: none;
+            min-height: 60px;
+            max-height: 120px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) inset;
+        }
+
+        #智能胶囊助手 .输入区域 textarea:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+        }
+
+        #智能胶囊助手 .发送按钮 {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        #智能胶囊助手 .发送按钮:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        #智能胶囊助手 .状态指示器 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 20px 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        #智能胶囊助手 .状态点 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf50;
+        }
+
+        #智能胶囊助手 .状态点.连接中 {
+            background: #ff9800;
+            animation: 脉冲动画 1.5s infinite;
+        }
+
+        #智能胶囊助手 .状态点.错误 {
+            background: #f44336;
+        }
+
+        @keyframes 脉冲动画 {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* 缩小状态时的样式 */
+        #智能胶囊助手.缩小状态 .智能胶囊助手标题栏 {
+            height: 100%;
+            justify-content: center;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        #智能胶囊助手.缩小状态 .智能胶囊助手标题栏 h3,
+        #智能胶囊助手.缩小状态 .缩小按钮 {
+            display: none;
+        }
+
+        #智能胶囊助手.缩小状态 .mini-robot-icon {
+            display: block;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            #智能胶囊助手 {
+                right: 15px;
+                bottom: 15px;
+                max-width: calc(100% - 30px);
+            }
+
+            #智能胶囊助手 .输入区域 {
+                flex-direction: column;
+            }
+
+            #智能胶囊助手 .发送按钮 {
+                width: 100%;
+                height: 50px;
+            }
+        }
+
+        /* 深色模式支持 - 只作用于胶囊助手内部 */
+        @media (prefers-color-scheme: dark) {
+            #智能胶囊助手 {
+                background: #1e1e1e;
+                border: 1px solid #333;
+            }
+
+            #智能胶囊助手 .智能胶囊助手标题栏 {
+                background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            }
+
+            #智能胶囊助手 .回答区域 {
+                background: #252525;
+                border-bottom: 1px solid #333;
+            }
+
+            #智能胶囊助手 .回答内容 {
+                color: #e0e0e0;
+            }
+
+            #智能胶囊助手 .输入区域 textarea {
+                background: #2d2d2d;
+                border: 1px solid #444;
+                color: #e0e0e0;
+            }
+
+            #智能胶囊助手 .输入区域 textarea:focus {
+                border-color: #6a11cb;
+                box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.3);
+            }
+
+            #智能胶囊助手 .状态指示器 {
+                color: #aaa;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 智能胶囊助手 -->
+    <div id="智能胶囊助手" class="缩小状态">
+        <div class="智能胶囊助手标题栏">
+            <h3>
+                <!-- 使用您提供的ChatGPT Logo作为机器人图标 -->
+                <img src="https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" class="robot-icon"
+                    alt="机器人图标">
+                Yugu-GPT 4o-mini
+            </h3>
+            <div class="缩小按钮" id="缩小按钮">
+                <!-- 缩小SVG图标 -->
+                <svg class="svg-icon" viewBox="0 0 24 24">
+                    <path d="M19 13H5v-2h14v2z" />
+                </svg>
+            </div>
+            <!-- 缩小状态专用图标 -->
+            <img src="https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" class="mini-robot-icon"
+                alt="机器人图标">
+        </div>
+
+        <div class="助手主体">
+            <div class="回答区域">
+                <div class="回答内容" id="回答内容">
+                    <h3>我是 YuguGPT，很高兴见到你！</h3>
+                    <h5>我可以帮你写代码、读文件、写作各种创意内容，请把你的任务交给我吧~</h5>
+                </div>
+            </div>
+
+            <div class="输入区域">
+                <textarea id="用户输入" placeholder="请输入您的问题..."></textarea>
+                <button class="发送按钮" id="发送按钮">
+                    <!-- 发送SVG图标 -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="状态指示器">
+                <div class="状态点" id="状态点"></div>
+                <span id="状态文本">Ready.</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API配置
+        const API密钥 = "请自己注册 https://laozhang.ai 中的 API";
+        const API地址 = "https://api.laozhang.ai/v1/chat/completions";
+
+        // 获取DOM元素
+        const 智能胶囊助手 = document.getElementById('智能胶囊助手');
+        const 发送按钮 = document.getElementById('发送按钮');
+        const 回答内容 = document.getElementById('回答内容');
+        const 用户输入 = document.getElementById('用户输入');
+        const 状态点 = document.getElementById('状态点');
+        const 状态文本 = document.getElementById('状态文本');
+        const 缩小按钮 = document.getElementById('缩小按钮');
+
+        // 切换助手状态（缩小/展开）
+        function 切换助手状态(展开 = true) {
+            if (展开) {
+                智能胶囊助手.classList.remove('缩小状态');
+                智能胶囊助手.style.animation = 'macOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+            } else {
+                智能胶囊助手.style.animation = 'macClose 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards';
+
+                // 动画结束后应用缩小状态
+                setTimeout(() => {
+                    智能胶囊助手.classList.add('缩小状态');
+                    智能胶囊助手.style.animation = '';
+                }, 400);
+            }
+        }
+
+        // 初始为缩小状态
+        切换助手状态(false);
+
+        // 点击圆形按钮展开
+        智能胶囊助手.addEventListener('click', function (e) {
+            // 只有在缩小状态时才响应整个容器的点击
+            if (智能胶囊助手.classList.contains('缩小状态')) {
+                切换助手状态(true);
+            }
+        });
+
+        // 点击缩小按钮
+        缩小按钮.addEventListener('click', function (e) {
+            e.stopPropagation(); // 阻止冒泡
+            切换助手状态(false);
+        });
+
+        // 发送请求
+        发送按钮.addEventListener('click', async function (e) {
+            e.stopPropagation(); // 阻止冒泡
+            const 问题 = 用户输入.value.trim();
+            if (!问题) {
+                更新状态("Enter!", "error");
+                return;
+            }
+
+            // 更新UI状态
+            更新状态("Doing...", "connecting");
+            回答内容.textContent = "思考中...";
+            用户输入.disabled = true;
+            发送按钮.disabled = true;
+
+            try {
+                // 发送请求到laozhang.ai API
+                const 响应 = await fetch(API地址, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API密钥}`
+                    },
+                    身体: JSON.stringify({
+                        model: "gpt-4o-mini",
+                        messages: [
+                            {
+                                role: "system",
+                                content: "请用清晰、简洁的语言回答用户的问题。回答内容直接显示在页面上，不需要包含任何格式或特殊符号："
+                            },
+                            { role: "user", content: 问题 }
+                        ],
+                        temperature: 0.7,
+                        max_tokens: 500
+                    })
+                });
+
+                if (!响应.ok) {
+                    throw new Error(`请求失败: ${响应.status} ${响应.statusText}`);
+                }
+
+                const 数据 = await 响应.json();
+
+                // 显示响应
+                回答内容.textContent = 数据.choices[0].message.content;
+                更新状态("Done.", "success");
+
+            } catch (错误) {
+                console.error('API请求错误:', 错误);
+                回答内容.textContent = `错误: ${错误.message}\n\n请检查您的网络连接或稍后再试。`;
+                更新状态("Error.", "error");
+            } finally {
+                用户输入.disabled = false;
+                发送按钮.disabled = false;
+                用户输入.value = "";
+                用户输入.focus();
+            }
+        });
+
+        // 更新状态函数
+        function 更新状态(消息, 状态) {
+            状态文本.textContent = 消息;
+            状态点.className = "状态点";
+
+            if (状态 === "connecting") {
+                状态点.classList.add("连接中");
+            } else if (状态 === "error") {
+                状态点.classList.add("错误");
+            }
+        }
+
+        // 允许按Enter发送请求（Shift+Enter换行）
+        用户输入.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                发送按钮.click();
+            }
+        });
+
+        // 示例问题
+        const 示例问题 = [
+            "解释量子计算的基本原理。",
+            "如何用JavaScript实现一个简单的聊天机器人？",
+            "帮我写一个能输出 Hello World! 的代码。",
+            "人工智能在编程学习有哪些应用？"
+        ];
+
+        // 随机选择一个示例问题
+        用户输入.placeholder = `给 YuguGPT 发送消息：${示例问题[Math.floor(Math.random() * 示例问题.length)]}`;
+    </script>
+</body>
+
+</html>
