@@ -49,12 +49,3 @@
     margin: 0 3px 0 5px !important;
     vertical-align: middle !important;
 }
-
-/*
-Tag 修改颜色：
-    background: #9D3DCF !important;
-    color: white !important;
-钩子修改颜色：
-    SVG 图片转换为 BASE64 后将 BASE64 置于：
-        background-image: url("BASE64-Code");
-*/
