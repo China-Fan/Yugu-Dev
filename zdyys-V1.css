@@ -1,0 +1,434 @@
+/*直接摘自浴谷 CSS 数据库，存档于 2025-06-24，后续的数据库更新会使用 V2 版本。*/
+
+/* 彩虹流动用户名+Tag */
+/* 彩虹流动用户名 */
+.PostUser-name a[href="/u/1"] .username {
+    background: linear-gradient(90deg,
+            #8000ff, #ff00ff, #ff0080, #ff0000, #ff8000, 
+            #ffff00, #80ff00, #00ff80, #00ffff, #0080ff) !important;
+    background-size: 400% 100% !important;
+    animation: rainbowFlow 3s linear infinite !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    font-weight: bold;
+}
+
+.PostUser-name a[href="/u/1"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 彩虹流动 Tag */
+.PostUser-name a[href="/u/1"]::after {
+    content: "未知 Mascot" !important;
+    position: relative;
+    display: inline-block !important;
+    background: linear-gradient(90deg,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00,
+            #00ff80,
+            #00ffff,
+            #0080ff,
+            #8000ff,
+            #ff00ff,
+            #ff0080);
+    background-size: 1000% 100%;
+    animation: rainbowFlow 8s linear infinite;
+    color: white;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    line-height: 1.5;
+    top: 5px;
+}
+
+/* 动画定义 */
+@keyframes rainbowFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* 136 */
+
+/* 彩虹流动用户名 */
+.PostUser-name a[href="/u/136"] .username {
+    background: linear-gradient(90deg,
+            #8000ff, #ff00ff, #ff0080, #ff0000, #ff8000, 
+            #ffff00, #80ff00, #00ff80, #00ffff, #0080ff) !important;
+    background-size: 400% 100% !important;
+    animation: rainbowFlow 3s linear infinite !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    font-weight: bold;
+}
+
+.PostUser-name a[href="/u/136"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/e8342s39.png");
+}
+
+/* 彩虹流动 Tag */
+.PostUser-name a[href="/u/136"]::after {
+    content: "月棠" !important;
+    position: relative;
+    display: inline-block !important;
+    background: linear-gradient(90deg,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00,
+            #00ff80,
+            #00ffff,
+            #0080ff,
+            #8000ff,
+            #ff00ff,
+            #ff0080);
+    background-size: 1000% 100%;
+    animation: rainbowFlow 8s linear infinite;
+    color: white;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    line-height: 1.5;
+    top: 5px;
+}
+
+/* 228 */
+
+/* 彩虹流动用户名 */
+.PostUser-name a[href="/u/228"] .username {
+    background: linear-gradient(90deg,
+            #8000ff, #ff00ff, #ff0080, #ff0000, #ff8000, 
+            #ffff00, #80ff00, #00ff80, #00ffff, #0080ff) !important;
+    background-size: 400% 100% !important;
+    animation: rainbowFlow 3s linear infinite !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    font-weight: bold;
+}
+
+/* 彩虹流动 Tag */
+.PostUser-name a[href="/u/228"]::after {
+    content: "好次的hyh" !important;
+    position: relative;
+    display: inline-block !important;
+    background: linear-gradient(90deg,
+            #ff0000,
+            #ff8000,
+            #ffff00,
+            #80ff00,
+            #00ff80,
+            #00ffff,
+            #0080ff,
+            #8000ff,
+            #ff00ff,
+            #ff0080);
+    background-size: 1000% 100%;
+    animation: rainbowFlow 8s linear infinite;
+    color: white;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    line-height: 1.5;
+    top: 5px;
+}
+
+/* --- */
+
+/* 基础样式 - 不要修改 */
+.PostUser-name a .username::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    margin: 0 3px 0 5px !important;
+    vertical-align: middle !important;
+}
+
+.PostUser-name a::after {
+    display: inline-block !important;
+    color: white !important;
+    font-size: 0.8em !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+}
+
+/* 用户配置 */
+/* 顺序：用户名颜色 奖项认证 Tag*/
+
+/* 4 */
+.PostUser-name a[href="/u/4"] .username {
+    color: #FE4C61 !important;
+}
+
+.PostUser-name a[href="/u/4"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/4"]::after {
+    content: "优先栈" !important;
+    background: #FE4C61 !important;
+}
+
+/* 6 */
+.PostUser-name a[href="/u/6"]::after {
+    content: "官方" !important;
+    background: #9D3DCF !important;
+}
+
+/* 7 */
+.PostUser-name a[href="/u/7"] .username {
+    color: #9D3DCF !important;
+}
+
+.PostUser-name a[href="/u/7"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/7"]::after {
+    content: "逸一时^_^误一世" !important;
+    background: #9D3DCF !important;
+}
+
+/* 11 */
+.PostUser-name a[href="/u/11"]::after {
+    content: "四月航空" !important;
+    background: #9D3DCF !important;
+}
+
+/* 14 */
+.PostUser-name a[href="/u/14"]::after {
+    content: "天谴" !important;
+    background: #FE4C61 !important;
+}
+
+/* 15 */
+.PostUser-name a[href="/u/15"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 18 */
+.PostUser-name a[href="/u/18"]::after {
+    content: "东边日出" !important;
+    background: #FE4C61 !important;
+}
+
+/* 22 */
+.PostUser-name a[href="/u/22"]::after {
+    content: "疯鬼碎夜" !important;
+    background: #FE4C61 !important;
+}
+
+/* 26 */
+.PostUser-name a[href="/u/26"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/e8342s39.png");
+}
+
+/* 35 */
+.PostUser-name a[href="/u/35"] .username {
+    color: #FE4C61 !important;
+}
+
+.PostUser-name a[href="/u/35"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/e8342s39.png");
+}
+
+.PostUser-name a[href="/u/35"]::after {
+    content: "蒟蒻" !important;
+    background: #FE4C61 !important;
+}
+
+/* 37 */
+.PostUser-name a[href="/u/37"] .username {
+    color: #FE4C61 !important;
+}
+
+.PostUser-name a[href="/u/37"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/37"]::after {
+    content: "曼巴" !important;
+    background: #FE4C61 !important;
+}
+
+/* 38 */
+
+.PostUser-name a[href="/u/38"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/38"]::after {
+    content: "算法萌新" !important;
+    background: #52C41A !important;
+}
+
+/* 119 */
+.PostUser-name a[href="/u/119"] .username {
+    color: #FE4C61 !important;
+}
+
+.PostUser-name a[href="/u/119"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/119"]::after {
+    content: "量子态" !important;
+    background: #FE4C61 !important;
+}
+
+/* 149 */
+.PostUser-name a[href="/u/149"] .username {
+    color: #9D3DCF !important;
+}
+
+.PostUser-name a[href="/u/149"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/e8342s39.png");
+}
+
+.PostUser-name a[href="/u/149"]::after {
+    content: "可爱喵~" !important;
+    background: #9D3DCF !important;
+}
+
+/* 150 */
+.PostUser-name a[href="/u/150"] .username {
+    color: #FE4C61 !important;
+}
+
+.PostUser-name a[href="/u/150"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/150"]::after {
+    content: "赛时答疑帖" !important;
+    background: #FE4C61 !important;
+}
+
+/* 158 */
+.PostUser-name a[href="/u/158"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 164 */
+.PostUser-name a[href="/u/164"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 177 */
+.PostUser-name a[href="/u/177"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 179 */
+.PostUser-name a[href="/u/179"] .username {
+    color: #9D3DCF !important;
+}
+
+.PostUser-name a[href="/u/179"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/179"]::after {
+    content: "iostream" !important;
+    background: #9D3DCF !important;
+}
+
+/* 189 */
+
+
+/* 203 */
+.PostUser-name a[href="/u/203"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/203"]::after {
+    content: "魔怔" !important;
+    background: #9D3DCF !important;
+}
+
+.PostUser-name a[href="/u/203"] .username {
+    color: #9D3DCF !important;
+}
+
+/* 216 */
+.PostUser-name a[href="/u/216"]::after {
+    content: "无序边境" !important;
+    background: #FEDCBA !important;
+}
+
+/* 224 */
+.PostUser-name a[href="/u/224"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/s1cv5rku.png");
+}
+
+.PostUser-name a[href="/u/224"]::after {
+    content: "省队爷" !important;
+    background: #FEDCBA !important;
+}
+
+/* 227 */
+.PostUser-name a[href="/u/227"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 249 */
+.PostUser-name a[href="/u/249"]::after {
+    content: "AI" !important;
+    background: #FEDCBA !important;
+}
+
+/* 270 */
+.PostUser-name a[href="/u/270"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/e8342s39.png");
+}
+
+/* 274 */
+.PostUser-name a[href="/u/274"]::after {
+    content: "菜鸡一只" !important;
+    background: #9D3DCF !important;
+}
+
+/* 285 */
+.PostUser-name a[href="/u/285"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+/* 289 */
+.PostUser-name a[href="/u/289"] .username::after {
+    background-image: url("https://cdn.luogu.com.cn/upload/image_hosting/ndz1gsx9.png");
+}
+
+.PostUser-name a[href="/u/289"]::after {
+    content: "炫彩小喷雾" !important;
+    background: #FEDCBA !important;
+}
